@@ -43,7 +43,7 @@ hacker@pannrummet:~$ tellcore_events --raw
 ~~~~
 
 The above is the output after pressing the remote a couple of times. As you can see, each press on the remote sends several codes,
-but not all codes are sent every time. If you want the remote to work properly, you should configure it with one of the codes that are always received. This script helps you identify which combination you should use. It captures all raw events and counts them so it's easier to see the codes that always work (both for "on" and "off" presses). After each event, it prints a list of the number of times each event has been received. Start it with <code>python3 tellcore-remote-spy</code> and press "on" and "off" on your remote a number of times. After a few presses, the output should look something like this:
+but not all codes are sent every time. If you want the remote to work properly, you should configure it with one of the codes that are always received. This script helps you identify which combination you should use. It captures all raw events and counts them so it's easier to see the codes that always work (both for "on" and "off" presses). After each event, it prints a (sorted) list of the number of times each event has been received. Start it with <code>python3 tellcore-remote-spy</code> and press "on" and "off" on your remote a number of times. After a few presses, the output should look something like this:
 
 ~~~~
 ----

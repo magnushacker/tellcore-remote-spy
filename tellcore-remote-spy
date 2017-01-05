@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+import sys
+
+import tellcore.telldus as td
+
+from collections import defaultdict
+
+counter=defaultdict(int)
+
+def raw_event(data, controller_id, cid):
+  key = data.replace("method:turnoff;", "").replace("method:turnon;", "")
+  counter[key] += 1
+
+  print ("----")
+  for key in sorted(counter.keys(), key=lambda x: counter[x]):
+    print ("%s: %d" % (key, counter[key])  )
+
+import asyncio
+loop = asyncio.get_event_loop()
+dispatcher = td.AsyncioCallbackDispatcher(loop)
+
+core = td.TelldusCore(callback_dispatcher=dispatcher)
+core.register_raw_device_event(raw_event)
+
+try:
+    loop.run_forever()
+except KeyboardInterrupt:
+    pass

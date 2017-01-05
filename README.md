@@ -1,14 +1,13 @@
 # tellcore-remote-spy
 Assist Tellstick users to configure remotes in /etc/tellstick.conf
 
-Uses python library tellcore-py, which can be installed with
+*Note*: Uses python library tellcore-py, which can be installed with
 ~~~~
 pip3 install tellcore-py
 ~~~~
 unless you already have it.
 
-If you want your Tellstick Duo (and the telldusd daemon) to pick up your remotes (or magnetic door sensors) you need to add them to /etc/tellstick.conf with
-an entry like this:
+I found that it would be useful to get my home automation system (Home Assistant) to be able to react to wall remotes, or magnetic door sensors, in order to trigger more complex functionality (through scripting) than simply turning lamps on and off. This required teaching my Tellstick Duo to react to signals from wall remote, which meant that /etc/tellstick.conf needs to have an entry like this:
 ~~~~
 device {
   id = 101
@@ -84,3 +83,4 @@ hacker@pannrummet:~$ tellcore_events --device
 [DEVICE] 200 -> turn on
 [DEVICE] 200 -> turn off
 ~~~~
+Now you can configure your home automation system to react on remote presses! You can use this to activate scenes with a wall remote, or you can have a "dinner is ready" remote in the kitchen that sends an notification to all devices in the household, or whatever else you can come up with!

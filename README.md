@@ -5,7 +5,7 @@ Assist Tellstick users to configure remotes in /etc/tellstick.conf
 ~~~~
 pip3 install tellcore-py
 ~~~~
-unless you already have it.
+unless you already have it (which you do if you are using Home Assistant)
 
 I found that it would be useful to get my home automation system (Home Assistant) to be able to react to wall remotes, or magnetic door sensors, in order to trigger more complex functionality (through scripting) than simply turning lamps on and off. This required teaching my Tellstick Duo to react to signals from wall remote, which meant that /etc/tellstick.conf needs to have an entry like this:
 ~~~~
